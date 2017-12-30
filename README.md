@@ -49,9 +49,9 @@ Sample .npy files can be downloaded [in this link.](https://drive.google.com/dri
 After downloading, extract and put the .npy files you want to feed into the network into their respective filenames.
 
 ## Training
-In line 16, '14' should be changed to how many .npy files you have in the Xtrain folder.
+In line 16, '2' should be changed to how many .npy files you have in the Xtrain folder.
 ```
-    for cnt in range(14):
+    for cnt in range(2):
 ```
 In line 473, '50' should be changed to how total training samples you have.
 ```
