@@ -33,7 +33,7 @@ def fetch_batch(batch_size):
 		# Find dataset in .npy format
 		Xset = sorted(glob('Xtrain/*.npy'))
 		Yset = sorted(glob('Ytrain/*.npy'))
-		for cnt in range(14):
+		for cnt in range(2):
 			xdata = np.load(Xset[cnt])
 			ydata = np.load(Yset[cnt])
 			a = np.array(xdata)
@@ -470,7 +470,7 @@ if __name__=='__main__':
 	batch_size = 5
 	learning_rate = 0.05
 
-	train_samps = 1400	#1464 WHOLE SET
+	train_samps = 50	#1464 WHOLE SET
 	steps_per_epoch = np.floor(train_samps/batch_size)
 
 	print("STARTING...")

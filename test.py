@@ -496,7 +496,6 @@ if __name__=='__main__':
 	elif(model_arch=="pspnet"):
 		input_shape=(473, 473, 3)	# PSPNet
 	nb_classes = 21				# PASCAL VOC 2012
-	epochs = 100
 	batch_size = 5
 	learning_rate = 0.05
 	width = input_shape[0]
@@ -534,9 +533,6 @@ if __name__=='__main__':
 	print('%s: %0.2f' % (loaded_model.metrics_names[1], score[1]))
 
 	# Testing
-	from sklearn.metrics import classification_report
-	from matplotlib import cm
-
 	# Pick random sample
 	rand = np.random.randint(len(Xtest))
 	print('----------------------')
@@ -544,17 +540,27 @@ if __name__=='__main__':
 	print('----------------------')
 	
 	# Load input
+	'''
 	filename = folder+'.txt'
 	with open (voc_loc+filename, "r") as myfile:
 		in_list = myfile.readlines()
 		in_list = [item.strip() for item in in_list]
 	locx = voc_loc+"JPEGImages/"+in_list[rand]+".jpg"
 	x = cv2.resize(plt.imread(locx), (width, height))
-	
+	'''
+	print(Xtest.shape)
+	x = Xtest[rand]
+	print(x.shape)
+
 	# Load ground truth labels
-	locy = voc_loc+"SegmentationClass_back/"+in_list[rand]+".png_e"
-	vis_y = cv2.resize(plt.imread(locy), (width, height))
-	
+	#locy = voc_loc+"SegmentationClass_back/"+in_list[rand]+".png_e"
+	#vis_y = cv2.resize(plt.imread(locy), (width, height))
+	print(Ytest.shape)
+	y = Ytest[rand]
+	y = np.reshape(y,(width,height,21))
+	vis_y = apply_colormap(np.argmax(y,axis=-1))
+	print(vis_y.shape)
+
 	# Apply colormap to prediction
 	output = loaded_model.predict(np.expand_dims(x, axis=0), verbose=0)[0]
 	output = np.reshape(output,(width,height,21))
