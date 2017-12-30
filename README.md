@@ -42,19 +42,28 @@ Sample .npy files can be downloaded [in this link.](https://drive.google.com/dri
 ```
     .
     ├── 256                   # Location of 256x256 .npy files (FOR SEGNET)
-    │   └─── *.npy files
+    │   └─── *.npy files      # Each .npy file has 25 samples
     └── 473                   # Location of 473x473 .npy files (FOR PSPNET)
-        └─── *.npy files
+        └─── *.npy files      # Each .npy file has 25 samples
 ```
 After downloading, extract and put the .npy files you want to feed into the network into their respective filenames.
 
 ## Training
-To train the network, just run
+In line 16, '14' should be changed to how many .npy files you have in the Xtrain folder.
+```
+    for cnt in range(14):
+```
+In line 473, '50' should be changed to how total training samples you have.
+```
+    train_samps = 50	#1464 WHOLE SET
+```
+Finally, to train the network, just run
 ```
 python training.py [model_arhitecture]
 python training.py pspnet
 python training.py segnet
 ```
+
 The link to the pre-trained SegNet model can be downloaded [in this link.](https://drive.google.com/file/d/1aLOaiASl2KgERhOZ9iNt6D9AZgKCWDlF/view?usp=sharing)
 
 ## Evaluation and Testing
@@ -62,9 +71,8 @@ To evaluate and test the trained model, just run
 ```
 python test.py [set_to_be_sampled] [model_architecture]
 python test.py train segnet
-python test.py val pspnet
 ```
-The voc_loc variable here should also be changed according to where your PASCAL VOC dataset is located. For now, only the SegNet weights are available and it is somewhat biased.
+For now, only the SegNet weights are available and it is somewhat biased.
 
 ### Contributions
 
