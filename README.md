@@ -33,7 +33,7 @@ python test.py [set_to_be_sampled] [model_architecture]
 python test.py train segnet
 python test.py val pspnet
 ```
-The voc_loc variable here should also be changed according to where your PASCAL VOC dataset is located.
+The voc_loc variable here should also be changed according to where your PASCAL VOC dataset is located. For now, only the SegNet weights are available and it is somewhat biased.
 
 ### Contributions
 
