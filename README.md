@@ -17,6 +17,37 @@ After changing the parameters, preprocess the dataset by running:
 bash gen.sh
 ```
 
+## Preprocessed Data Hierarchy
+Preprocessed data should be located in the working directory as indicated below:
+NOTE: FOLDER NAMES OF .NPY FILES ARE ABSOLUTE.
+```
+    .
+    ├── Xtrain                   # Location of Xtrain_*.npy files
+    │   └─── *.npy files
+    ├── Ytrain                   # Location of Ytrain_*.npy files
+    │   └─── *.npy files
+    ├── Xval                     # Location of Xval_*.npy files
+    │   └─── *.npy files
+    ├── Yval                     # Location of Yval_*.npy files
+    │   └─── *.npy files
+    ├── gen.sh                   # Bash script for calling generate_x.py and generate_y.py
+    ├── generate_x.py            # Bash script preprocessing inputs
+    ├── generate_y.py            # Bash script preprocessing ground truth labels
+    ├── Resnet50.py
+    ├── test.py
+    ├── training.py
+    └── README.md
+```
+Sample .npy files can be downloaded [in this link.](https://drive.google.com/drive/folders/1I7fgSU4l5ptyzwd35I-5YWJSVHukmP4V?usp=sharing). The sample data are organized as follows:
+```
+    .
+    ├── 256                   # Location of 256x256 .npy files (FOR SEGNET)
+    │   └─── *.npy files
+    └── 473                   # Location of 473x473 .npy files (FOR PSPNET)
+        └─── *.npy files
+```
+After downloading, extract and put the .npy files you want to feed into the network into their respective filenames.
+
 ## Training
 To train the network, just run
 ```
