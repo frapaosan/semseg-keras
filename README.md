@@ -24,7 +24,7 @@ python training.py [model_arhitecture]
 python training.py pspnet
 python training.py segnet
 ```
-The link to the pre-trained SegNet model can be downloaded [in this link.](http://www.dropbox.com)
+The link to the pre-trained SegNet model can be downloaded [in this link.](https://drive.google.com/file/d/1aLOaiASl2KgERhOZ9iNt6D9AZgKCWDlF/view?usp=sharing)
 
 ## Evaluation and Testing
 To evaluate and test the trained model, just run
