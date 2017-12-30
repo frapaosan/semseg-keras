@@ -502,7 +502,7 @@ if __name__=='__main__':
 	width = input_shape[0]
 	height = input_shape[1]
 
-    voc_loc = "/media/francis/datasets/_AADatasets/VOC2012_orig/"
+	voc_loc = "/media/francis/datasets/_AADatasets/VOC2012_orig/"
 
 	# GET TEST AND VALIDATION DATA
 	print("[1] FETCHING DATA...")
